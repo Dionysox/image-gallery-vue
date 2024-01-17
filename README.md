@@ -1,4 +1,9 @@
 # images-gallery
+## Pour notre projet:
+
+Dans le projet Nest, faire le git clone dans le dossier /public:
+
+git clone https://github.com/Dionysox/image-gallery-vue.git
 
 ## Project setup
 ```
