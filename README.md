@@ -3,6 +3,7 @@
 
 Dans le projet Nest, faire le git clone dans le dossier /public:
 ```
+cd public/
 git clone https://github.com/Dionysox/image-gallery-vue.git
 ```
 
