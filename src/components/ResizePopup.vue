@@ -24,6 +24,7 @@ export default {
   },
   methods: {
     sendSize() {
+      //On envoie les coordonnées au componant ResizeImage
       const height = this.height;
       const width = this.width;
       this.$emit('image-resized', { height, width });

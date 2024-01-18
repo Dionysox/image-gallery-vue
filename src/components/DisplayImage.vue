@@ -108,14 +108,19 @@ export default {
       instance.appContext.config.globalProperties.$router.push({
         name: 'main',
       });
+      const params = {
+        id: route.params.id,
+        name: imageName,
+      };
+      instance.emit('back', params);
     };
 
-    const beforeRouteLeave = (to, from, next) => {
-      // Appel de la méthode updateImages du parent (App.vue) lorsqu'on quitte la route 'display-image'
-      console.log('before route leave');
-      this.$parent.updateImages();
-      next();
-    };
+    // const beforeRouteLeave = (to, from, next) => {
+    //   // Appel de la méthode updateImages du parent (App.vue) lorsqu'on quitte la route 'display-image'
+    //   console.log('before route leave');
+    //   this.$parent.updateImages();
+    //   next();
+    // };
 
     onMounted(() => {
       imageSrc.value = `http://localhost:3000/images/${route.params.id}`;
@@ -133,7 +138,6 @@ export default {
       updateImage,
       downloadImage,
       backList,
-      beforeRouteLeave,
     };
   },
   components: {

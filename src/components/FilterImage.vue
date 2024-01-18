@@ -168,6 +168,7 @@ export default {
         blur: blur.value,
       };
       return {
+        // On créer le style de l'image basé sur les filtres séléctionnés
         filter: Object.entries(data)
           .filter((item) => typeof item[1] !== 'object')
           .map(
@@ -188,10 +189,10 @@ export default {
       image.onload = () => {
         canvas.width = image.width;
         canvas.height = image.height;
-        ctx.filter = filters().filter; // Appliquez les filtres CSS
+        ctx.filter = filters().filter; // Applique les filtres CSS
         ctx.drawImage(image, 0, 0);
 
-        // Convertissez le contenu du canvas en une image de données
+        // Convertis le contenu du canvas en une image de données
         canvas.toBlob(async (blob) => {
           const formData = new FormData();
           formData.append('file', blob);

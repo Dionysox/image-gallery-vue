@@ -74,7 +74,7 @@ export default {
       const canvas = document.createElement('canvas');
       const ctx = canvas.getContext('2d');
 
-      // Appliquez les dimensions à l'image
+      // Applique les dimensions à l'image
       const image = new Image();
       image.src = imageSrc.value;
       image.crossOrigin = 'Anonymous';
@@ -108,7 +108,7 @@ export default {
     onMounted(() => {
       imageSrc.value = `http://localhost:3000/images/${route.params.id}`;
 
-      // On charge l'image et récupérez ses dimensions d'origine
+      // On charge l'image et récupére ses dimensions d'origine
       const img = new Image();
       img.src = imageSrc.value;
       img.onload = () => {

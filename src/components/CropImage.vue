@@ -44,7 +44,7 @@ export default {
   },
   methods: {
     change({ coordinates, canvas }) {
-      console.log(coordinates, canvas);
+      //console.log(coordinates, canvas);
       this.coordinates = coordinates;
       this.image = canvas.toDataURL();
     },
@@ -56,7 +56,7 @@ export default {
           return;
         }
 
-        // Convert the base64 image to a Blob
+        // Convertis l'image base64 en Blob
         const base64Image = this.image.split(',')[1];
         const byteCharacters = atob(base64Image);
         const byteNumbers = new Array(byteCharacters.length);
@@ -78,9 +78,12 @@ export default {
           const formData = new FormData();
           formData.append('file', blob);
           formData.append('name', this.imageName);
+
+          //Met à jour l'image dans la BDD avec le blob
           axios
             .put(`http://localhost:3000/images/${this.imageId}`, formData)
             .then(() => {
+              // Met à jour l'image sur les autres components
               this.$emit('image-cropped', this.image);
               this.closeEdit();
             })

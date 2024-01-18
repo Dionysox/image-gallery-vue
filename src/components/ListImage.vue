@@ -28,6 +28,7 @@ export default {
     const images = ref([]);
 
     const fetchImages = () => {
+      // Récupère la liste des images
       axios
         .get('http://localhost:3000/images')
         .then((response) => {

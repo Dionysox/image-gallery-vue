@@ -37,12 +37,13 @@ export default {
   },
   methods: {
     renameImage() {
+      //On met à jour le nom de l'image
       axios
         .put(`http://localhost:3000/images/${this.imageId}`, {
           name: this.newName,
         })
         .then(() => {
-          // Update the image name in your application's state or data
+          // Met à jour le nom de l'image sur les autres components
           this.$emit('image-renamed', this.newName);
           this.closePopup();
         })

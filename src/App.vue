@@ -12,7 +12,7 @@
       v-if="this.$route.name === 'main'"
     />
     <display-image
-      @back="updateImages"
+      @back="updateImage"
       :images="images"
       ref="displayImage"
       class="displayimage"
@@ -45,6 +45,16 @@ export default {
       //appel la méthode fetchImages pour mettre à jour la liste des images.
       this.$refs.listImage.fetchImages();
     },
+
+    updateImage(updatedImage) {
+      console.log(this.$route.name);
+      for (let i = 0; i < this.images.length; i++) {
+        if (this.images[i].id === updatedImage.id) {
+          this.images[i] = updatedImage;
+          break; // Sortez de la boucle une fois que vous avez trouvé et mis à jour l'image.
+        }
+      }
+    },
   },
 };
 </script>
@@ -58,6 +68,10 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
   background-color: #263258;
+}
+
+body {
+  margin: 0px;
 }
 
 .upload {
